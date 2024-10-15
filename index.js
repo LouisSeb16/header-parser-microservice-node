@@ -24,12 +24,11 @@ app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'hello API' });
 });
 
-// Request Header Parser Microservice endpoint
 app.get('/api/whoami', function (req, res) {
   res.json({
     ipaddress: req.ip,
-    language: req.get('Accept-Language'),
-    software: req.get('User-Agent')
+    language: req.headers['accept-language'],
+    software: req.headers['user-agent']
   });
 });
 
